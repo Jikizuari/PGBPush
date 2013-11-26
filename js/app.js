@@ -1,6 +1,21 @@
 // GCM sender id; obtainable in your own Google APIS thingy
 var gcm_sender_id = "149469167081";
 
+var application = {
+
+	/*
+	 FUNC : Processing the devicetoken
+	 */
+	 process_notification: function(data_parameters) {
+		$.ajax( {
+		 url      : "http://www.oosterlicht.nl/mobile_app.ajax.php?callback=?",
+		 type     : "GET",
+		 async    : false,
+		 data     : data_parameters,
+		 dataType : "jsonp"
+	 } );
+	},
+};
 /* ****************************************** Push notifications ****************************************** */
 var app = {
 	// Application Constructor
@@ -49,7 +64,16 @@ var app = {
 		{
 			case 'registered':
 			if ( e.regid.length > 0 )
-				alert( 'Registration id = ' + e.regid );
+				{
+					alert('registration id = '+e.regid);
+					application.process_notification( {
+						push      : 'update',
+						type      : 'android',
+						device_id : e.regid,
+						klas      : 'test',
+						locatie   : 'test',
+					} );
+				}
 				break;
 
 			case 'message':
