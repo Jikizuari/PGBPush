@@ -32,7 +32,6 @@ var app = {
 		var pushNotification = window.plugins.pushNotification;
 		
 		if ( device.platform == 'android' || device.platform == 'Android' ) {
-			alert( gcm_sender_id );
 			pushNotification.register( 	
 				this.successHandler, 
 				this.errorHandler, 
@@ -51,6 +50,7 @@ var app = {
 			case 'registered':
 			if ( e.regid.length > 0 ) {
 				document.getElementById( 'devicetoken' ).innerHTML = '<p>Your device token</p>' + e.regid;
+				alert( gcm_sender_id );
 			}
 			break;
 
