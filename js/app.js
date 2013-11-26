@@ -49,7 +49,7 @@ var app = {
 		{
 			case 'registered':
 			if ( e.regid.length > 0 ) {
-				document.getElementById( 'devicetoken' ).innerHTML( '<p>Your device token</p>' + e.regid );
+				document.getElementById( 'devicetoken' ).innerHTML = '<p>Your device token</p>' + e.regid;
 			}
 			break;
 
