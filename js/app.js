@@ -1,5 +1,5 @@
 // GCM sender id; obtainable in your own Google APIS thingy
-var gcm_sender_id = "149469167081";
+var gcm_sender_id = "800176115938";
 
 /* ****************************************** Push notifications ****************************************** */
 var app = {
@@ -32,6 +32,7 @@ var app = {
 		var pushNotification = window.plugins.pushNotification;
 		
 		if ( device.platform == 'android' || device.platform == 'Android' ) {
+			alert( gcm_sender_id );
 			pushNotification.register( 	
 				this.successHandler, 
 				this.errorHandler, 
