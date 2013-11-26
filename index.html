@@ -1,0 +1,30 @@
+<DOCTYPE html>
+<html>
+<head>
+	<title> PhoneGap build Push Notifications </title>
+</head>
+<body>
+
+	<!-- Import the Javascript -->
+	<script type='text/javascript' src='js/app.js'></script>
+	
+	<!-- Scripts used for PhoneGap ( injected at build ) -->
+	<script>
+		// We only need them if we're in a PhoneGap application
+	  	if ( is_phonegap_app ) {
+	    	var pushnotificationscript 		= document.createElement( 'SCRIPT' );
+	    		pushnotificationscript.type	= 'text/javascript';
+	    		pushnotificationscript.src 	= 'PushNotification.js';
+	    	
+	    	document.getElementsByTagName( 'head' )[0].appendChild( pushnotificationscript );
+	    
+	    	var phonegapscript				= document.createElement( 'SCRIPT' );
+	    		phonegapscript.type 		= 'text/javascript';
+	    		phonegapscript.src 			= 'phonegap.js';
+	    
+	    	document.getElementsByTagName( 'head' )[0].appendChild( phonegapscript );
+	  	}
+	</script>
+	
+</body>
+</html>
